@@ -1,0 +1,113 @@
+:root {
+  --pink1: #FFB6C1;
+  --pink2: #F8C8DC;
+  --pink3: #AA336A;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: system-ui;
+  background: linear-gradient(180deg, var(--pink2), var(--pink1));
+}
+
+.app {
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.hud {
+  text-align: center;
+  background: white;
+  border-radius: 20px;
+  padding: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.caption {
+  font-size: 13px;
+  color: var(--pink3);
+  margin-top: 4px;
+}
+
+.progress {
+  height: 10px;
+  background: #eee;
+  border-radius: 999px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--pink3), var(--pink1));
+  transition: width 0.1s linear;
+}
+
+.percent {
+  font-size: 12px;
+  margin-top: 5px;
+  color: var(--pink3);
+  font-weight: bold;
+}
+
+.stage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+canvas {
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(#F8C8DC, #FFB6C1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding-bottom: 10px;
+}
+
+.control-btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  border: none;
+  background: var(--pink3);
+  color: white;
+  font-size: 24px;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+}
+
+.control-btn:active {
+  transform: translateY(3px);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden { display: none; }
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  text-align: center;
+}
