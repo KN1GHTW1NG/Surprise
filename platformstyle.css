@@ -1,0 +1,177 @@
+:root{
+  --ink:#1e1f22;
+  --shadow: 0 18px 45px rgba(0,0,0,.18);
+  --soft: 0 10px 25px rgba(0,0,0,.12);
+  --pill: 9999px;
+  --spring: cubic-bezier(.2,.9,.2,1);
+}
+
+*{box-sizing:border-box}
+body{margin:0; font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial; color:var(--ink);}
+
+.wrap{
+  height: 100svh;            /* iPhone-friendly viewport */
+  max-height: 100svh;
+  background: linear-gradient(180deg, #f7fbff, #ffffff);
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  padding:10px;
+  outline:none;
+}
+
+.hud{
+  background: rgba(255,255,255,.90);
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 16px;
+  box-shadow: var(--soft);
+  padding: 10px 12px;
+}
+
+.title{font-weight:950; letter-spacing:-.01em; font-size:18px;}
+.sub{margin-top:4px; font-weight:650; color: rgba(30,31,34,.65); font-size:13px;}
+.micro{margin-top:8px; font-size:12px; color: rgba(30,31,34,.55);}
+
+.progRow{
+  display:flex; align-items:center; gap:10px;
+  margin-top:10px;
+}
+.bar{
+  flex:1; height:12px; border-radius: var(--pill);
+  background: rgba(0,0,0,.06); overflow:hidden;
+}
+.fill{
+  height:100%; width:0%;
+  border-radius: var(--pill);
+  background: linear-gradient(90deg, #00b894, #55efc4, #0984e3);
+  transition: width 90ms linear;
+}
+.stats{
+  min-width:120px;
+  display:flex; justify-content:flex-end; gap:10px;
+  font-weight:900; color: rgba(30,31,34,.72);
+}
+
+.stage{
+  flex: 1;                   /* canvas fills remaining space */
+  min-height: 0;
+  display:flex;
+  justify-content:center;
+  align-items:stretch;
+}
+
+canvas{
+  width: 100%;
+  height: 100%;
+  border-radius:16px;
+  border:1px solid rgba(0,0,0,.08);
+  box-shadow: var(--shadow);
+  background:#000;
+  touch-action:none;
+
+  /* portrait “app” feel: don’t exceed phone width */
+  max-width: 520px;
+}
+
+.controls{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding-bottom:6px;
+}
+
+.dpad{
+  position:relative;
+  width:170px;
+  height:130px;
+}
+.btn{
+  position:absolute;
+  width:54px; height:54px;
+  border-radius:14px;
+  border:1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 12px 22px rgba(0,0,0,.12);
+  font-weight:900;
+  cursor:pointer;
+  user-select:none;
+  transform: translateY(0);
+  transition: transform 140ms var(--spring), box-shadow 180ms var(--spring), filter 180ms var(--spring);
+  touch-action:none;
+}
+.btn:active{
+  transform: translateY(2px);
+  box-shadow: 0 7px 14px rgba(0,0,0,.14);
+  filter: brightness(.98);
+}
+.up{top:0; left:58px;}
+.down{bottom:0; left:58px;}
+.left{left:0; top:38px;}
+.right{right:0; top:38px;}
+
+.jump{
+  flex:1;
+  max-width:220px;
+  height:58px;
+  border-radius: var(--pill);
+  border:1px solid rgba(0,0,0,.10);
+  background: linear-gradient(180deg, #ff7675, #e17055);
+  color:#fff;
+  font-weight:950;
+  letter-spacing:.02em;
+  box-shadow: 0 14px 28px rgba(0,0,0,.18);
+  cursor:pointer;
+  user-select:none;
+  transform: translateY(0);
+  transition: transform 140ms var(--spring), box-shadow 180ms var(--spring), filter 180ms var(--spring);
+  touch-action:none;
+}
+.jump:active{
+  transform: translateY(2px);
+  box-shadow: 0 8px 16px rgba(0,0,0,.20);
+  filter: brightness(.98);
+}
+
+.overlay{
+  position:fixed;
+  inset:0;
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(6px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px;
+  z-index:30;
+}
+.hidden{display:none !important;}
+.modal{
+  width:min(520px,100%);
+  border-radius:16px;
+  background: rgba(255,255,255,.94);
+  border:1px solid rgba(255,255,255,.8);
+  box-shadow: var(--shadow);
+  padding:16px;
+  text-align:center;
+}
+.h1{font-weight:950; font-size:22px; margin-bottom:6px;}
+.p{font-weight:650; color: rgba(30,31,34,.75); line-height:1.45; margin-bottom:12px;}
+.row{display:flex; gap:10px; justify-content:center; flex-wrap:wrap;}
+.pill{
+  min-width:140px; height:46px;
+  border-radius: var(--pill);
+  border:1px solid rgba(0,0,0,.10);
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 12px 22px rgba(0,0,0,.12);
+  font-weight:900;
+  cursor:pointer;
+  user-select:none;
+  transform: translateY(0);
+  transition: transform 140ms var(--spring), box-shadow 180ms var(--spring), filter 180ms var(--spring);
+}
+.pill:active{transform: translateY(2px); box-shadow:0 7px 14px rgba(0,0,0,.14); filter:brightness(.98);}
+.primary{
+  background: linear-gradient(180deg, #00b894, #00997a);
+  color:#fff;
+  border-color: rgba(0,0,0,.08);
+}
