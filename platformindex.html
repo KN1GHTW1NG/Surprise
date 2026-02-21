@@ -1,0 +1,40 @@
+<div class="wrap" id="wrap" tabindex="0">
+  <header class="hud">
+    <div class="title">Platform Run</div>
+    <div class="sub">Arrow keys / WASD + Space. On phone: D-pad + Jump. Reach the car 🚗</div>
+
+    <div class="progRow">
+      <div class="bar"><div class="fill" id="fill"></div></div>
+      <div class="stats"><span id="pct">0%</span><span id="m">0m</span></div>
+    </div>
+
+    <div class="micro">Tip: tap the game once to keep keyboard focus.</div>
+  </header>
+
+  <main class="stage">
+    <!-- Portrait canvas -->
+    <canvas id="cv" width="540" height="960"></canvas>
+  </main>
+
+  <footer class="controls" aria-label="controls">
+    <div class="dpad" aria-label="D-pad">
+      <button class="btn up" id="upBtn">▲</button>
+      <button class="btn left" id="leftBtn">◀</button>
+      <button class="btn right" id="rightBtn">▶</button>
+      <button class="btn down" id="downBtn">▼</button>
+    </div>
+    <button class="jump" id="jumpBtn">JUMP</button>
+  </footer>
+
+  <div class="overlay hidden" id="win">
+    <div class="modal">
+      <div class="h1">Congratulations 🎉</div>
+      <div class="p">You reached the car. Ready for the next challenge?</div>
+      <div class="row">
+        <button class="pill primary" id="continue">Continue</button>
+        <button class="pill" id="replay">Replay</button>
+      </div>
+      <div class="micro">Later: wire “Continue” to your car-traffic game page.</div>
+    </div>
+  </div>
+</div>
